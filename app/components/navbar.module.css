@@ -16,14 +16,20 @@
 .navbar_links{
     display: flex;
     gap: 1.5rem;
+}
+.navbar_links p{
+    transition: all ease-in-out 0.3s;
+}
+.navbar_links p:hover{
+    color: var(--custom-brown);
 
 }
 .active_link{
     color: var(--custom-brown);
+    font-weight: 600;
 }
 .app_title{
     font-size: 1.2rem;
-    font-weight: bold;
 }
 .app_title span{
     color: var(--custom-brown);

@@ -15,9 +15,9 @@ const Navbar = () => {
                 <p className={style.app_title}><span>Obesi</span>Scan</p>
             </div>
             <div className={style.navbar_links}>
-                <Link href="/" className={isActive("/")}>Home</Link>
-                <Link href="/blog" className={isActive("/blog")}>Blog</Link>
-                <Link href="/about" className={isActive("/about")}>About</Link>
+                <Link href="/" className={isActive("/")}><p>Home</p></Link>
+                <Link href="/blog" className={isActive("/blog")}><p>Blog</p></Link>
+                <Link href="/about" className={isActive("/about")}><p>About</p></Link>
             </div>
         </div>
     );
