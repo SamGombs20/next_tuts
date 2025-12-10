@@ -1,0 +1,32 @@
+.navbar_container{
+    width: 100%;
+    height: 60px;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    display: flex;
+    color: var(--custom-dark-green);
+    align-items: center;
+    justify-content: space-evenly;
+}
+.navbar_logo_name{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.navbar_links{
+    display: flex;
+    gap: 1.5rem;
+
+}
+.active_link{
+    color: var(--custom-brown);
+}
+.app_title{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.app_title span{
+    color: var(--custom-brown);
+    font-size: 1rem;
+    font-weight: normal;
+}
