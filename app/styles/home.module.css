@@ -1,0 +1,43 @@
+.intro_container{
+    max-width: 1120px;
+    margin-top: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+}
+.intro_text{
+    font-size: 2.5rem;
+    color: var(--custom-brown);
+    
+    
+}
+.intro_text span{
+    color: var(--custom-dark-green);
+    font-weight: 600;
+}
+.check_container{
+    margin-top: 2rem;
+    border: 1px solid var(--custom-brown);
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 800px;
+}
+.check_title{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.check_btn{
+    margin-top: 3rem;
+    padding: 8px 20px;
+    border-radius: 1.5rem;
+    color: white;
+    font-weight: 600;
+    border: none;
+    background: linear-gradient(135deg, var(--custom-brown), var(--custom-dark-green));
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.check_btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px #ff8c4558;
+}
