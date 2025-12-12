@@ -1,0 +1,40 @@
+.footer_container {
+    background: linear-gradient(135deg, var(--custom-brown), var(--custom-dark-green));
+    position: sticky;
+    bottom: 0;
+    z-index: -1;
+    padding: 4rem;
+}
+
+.footer {
+    display: flex;
+    color: white;
+    justify-content: space-evenly;
+}
+
+.footer_logo_name {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.app_title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.app_title span {
+    font-size: 1rem;
+    font-weight: normal;
+}
+.nav_links .title{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+.footer_links{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
