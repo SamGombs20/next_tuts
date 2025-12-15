@@ -1,5 +1,5 @@
 .footer_container {
-    background: linear-gradient(135deg, var(--custom-brown), var(--custom-dark-green));
+    /* background: linear-gradient(135deg, var(--custom-brown), var(--custom-dark-green)); */
     /* position: sticky;
     bottom: 0;
     z-index: 1; */
@@ -8,7 +8,10 @@
 
 .footer {
     display: flex;
-    color: white;
+    color: var(--custom-brown);
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: start;
@@ -22,43 +25,51 @@
 
 .app_title {
     font-size: 1.5rem;
-    font-weight: 600;
+
+    color: var(--custom-dark-green);
 }
 
 .app_title span {
     font-size: 1rem;
-    font-weight: normal;
+    color: var(--custom-brown);
 }
-.nav_links .title{
+
+.nav_links .title {
     font-size: 1.2rem;
+    color: var(--custom-dark-green);
     font-weight: 600;
     margin-bottom: 1rem;
     flex-wrap: wrap;
 }
-.footer_links{
+
+.footer_links {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
-.footer_link{
+
+.footer_link {
     position: relative;
     transition: all 0.4s ease-in-out;
     width: fit-content;
 }
-.footer_link::after{
+
+.footer_link::after {
     content: "";
     position: absolute;
     bottom: -4px;
     left: 0;
     height: 2px;
     width: 0%;
-    background-color: white;
+    background: linear-gradient(135deg, var(--custom-brown), var(--custom-dark-green));
     transition: width 0.25s ease;
 }
-.footer_link:hover::after{
+
+.footer_link:hover::after {
     width: 100%;
 }
-.footer_link:hover{
+
+.footer_link:hover {
     letter-spacing: 0.05rem;
 
 }
