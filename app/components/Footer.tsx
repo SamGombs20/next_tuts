@@ -7,7 +7,7 @@ const Footer = () => {
         <div className={style.footer_container}>
             <div className={style.footer}>
                 <div className={style.footer_logo_name}>
-                    <Image src="/obesiscan_icon.png"
+                    <Image src="/obesiscan_white.webp"
                         alt="" width={35} height={35} />
                     <p className={style.app_title}><span>Obesi</span>Scan</p>
                 </div>
