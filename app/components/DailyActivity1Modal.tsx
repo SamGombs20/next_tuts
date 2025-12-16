@@ -1,7 +1,7 @@
 'use client'
 
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
-import { textfieldStyles } from "../styles/MUICustom";
+import { FormControl, FormControlLabel, FormLabel,  Radio, RadioGroup } from "@mui/material";
+import { radioGroupStyles} from "../styles/MUICustom";
 import style from "../styles/detail_modal.module.css"
 export const DailyActivity1 = () => {
     return (
@@ -11,26 +11,47 @@ export const DailyActivity1 = () => {
             </p>
             <div className={style.details_form}>
                 <div className={style.radio_container}>
-                    <FormControl sx={textfieldStyles}>
-                        <InputLabel id="gender-status">Gender</InputLabel>
-                        <Select labelId="gender-status" id="gender" label="Gender" name="gender">
-                            <MenuItem value="Not Started">Male</MenuItem>
-                            <MenuItem value="In Progress">Female</MenuItem>
-                        </Select>
+                    <FormControl sx={radioGroupStyles}>
+                        <FormLabel id="water">How much water do you drink daily?</FormLabel>
+                        <RadioGroup aria-labelledby="water" name="water-group">
+                            <FormControlLabel value="1" control={<Radio />} label="less than 3 glasses" />
+                            <FormControlLabel value="2" control={<Radio />} label="3-8 glasses" />
+                            <FormControlLabel value="3" control={<Radio />} label="more than 8 glasses" />
+
+                        </RadioGroup>
                     </FormControl>
                 </div>
                 <div className={style.radio_container}>
-                    <FormControl sx={textfieldStyles}>
-                        <InputLabel id="family-status">Do you have overweight history in the family?</InputLabel>
-                        <Select labelId="family-status" id="gender" label="Do you have overweight history in the family? " name="gender">
-                            <MenuItem value="Not Started">Yes</MenuItem>
-                            <MenuItem value="In Progress">No</MenuItem>
-                        </Select>
+                    <FormControl sx={radioGroupStyles}>
+                        <FormLabel id="calorie">Do you monitor the calories you eat daily?</FormLabel>
+                        <RadioGroup aria-labelledby="calorie" name="calorie-group">
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                        </RadioGroup>
                     </FormControl>
                 </div>
-                <TextField label="Age" sx={textfieldStyles}/>
-                <TextField label="Height (m)" sx={textfieldStyles}/>
-                <TextField label="Weight (kg)" sx={textfieldStyles}/>
+                <div className={style.radio_container}>
+                    <FormControl sx={radioGroupStyles}>
+                        <FormLabel id="smoke">Do you smoke?</FormLabel>
+                        <RadioGroup aria-labelledby="smoke" name="smoke-group">
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                        </RadioGroup>
+                    </FormControl>
+                </div>
+                <div className={style.radio_container}>
+                    <FormControl sx={radioGroupStyles}>
+                        <FormLabel id="alcohol">How often do you drink alcohol?</FormLabel>
+                        <RadioGroup aria-labelledby="alcohol" name="alcohol-group">
+                            <FormControlLabel value="1" control={<Radio />} label="I don't" />
+                            <FormControlLabel value="2" control={<Radio />} label="Sometimes" />
+                            <FormControlLabel value="3" control={<Radio />} label="Frequently" />
+                            <FormControlLabel value="4" control={<Radio />} label="Always" />
+
+
+                        </RadioGroup>
+                    </FormControl>
+                </div>
             </div>
         </div>
     );

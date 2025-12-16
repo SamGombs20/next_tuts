@@ -1,6 +1,6 @@
 'use client'
 
-import { FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField } from "@mui/material";
+import { FormControl, FormControlLabel, FormLabel,  Radio, RadioGroup, TextField } from "@mui/material";
 import { radioGroupStyles, textfieldStyles } from "../styles/MUICustom";
 import style from "../styles/detail_modal.module.css"
 export const PersonalDetailsModal = () => {
