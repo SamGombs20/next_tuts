@@ -1,7 +1,7 @@
 'use client'
 
-import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
-import { textfieldStyles } from "../styles/MUICustom";
+import { FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField } from "@mui/material";
+import { radioGroupStyles, textfieldStyles } from "../styles/MUICustom";
 import style from "../styles/detail_modal.module.css"
 export const PersonalDetailsModal = () => {
     return (
@@ -11,26 +11,26 @@ export const PersonalDetailsModal = () => {
             </p>
             <div className={style.details_form}>
                 <div className={style.radio_container}>
-                    <FormControl sx={textfieldStyles}>
-                        <InputLabel id="gender-status">Gender</InputLabel>
-                        <Select labelId="gender-status" id="gender" label="Gender" name="gender">
-                            <MenuItem value="Not Started">Male</MenuItem>
-                            <MenuItem value="In Progress">Female</MenuItem>
-                        </Select>
+                    <FormControl sx={radioGroupStyles}>
+                        <FormLabel id="gender">Gender</FormLabel>
+                        <RadioGroup aria-labelledby="gender" name="gender-group">
+                            <FormControlLabel value="male" control={<Radio />} label="Male" />
+                            <FormControlLabel value="female" control={<Radio />} label="Female" />
+                        </RadioGroup>
                     </FormControl>
                 </div>
                 <div className={style.radio_container}>
-                    <FormControl sx={textfieldStyles}>
-                        <InputLabel id="family-status">Do you have overweight history in the family?</InputLabel>
-                        <Select labelId="family-status" id="gender" label="Do you have overweight history in the family? " name="gender">
-                            <MenuItem value="Not Started">Yes</MenuItem>
-                            <MenuItem value="In Progress">No</MenuItem>
-                        </Select>
+                    <FormControl sx={radioGroupStyles}>
+                        <FormLabel id="family"> Do have a family history of anyone being overweight?</FormLabel>
+                        <RadioGroup aria-labelledby="family" name="family-group">
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                        </RadioGroup>
                     </FormControl>
                 </div>
-                <TextField label="Age" sx={textfieldStyles}/>
-                <TextField label="Height (m)" sx={textfieldStyles}/>
-                <TextField label="Weight (kg)" sx={textfieldStyles}/>
+                <TextField label="Age" sx={textfieldStyles} />
+                <TextField label="Height (m)" sx={textfieldStyles} />
+                <TextField label="Weight (kg)" sx={textfieldStyles} />
             </div>
         </div>
     );
