@@ -131,11 +131,11 @@
     padding: 1rem 0.8rem;
     border-radius: 1rem;
     margin: 1rem;
+    box-shadow: var(--box-shadow);
 }
 .transparent{
     background-color: var(--custom-dark-green);
     color: white;
-    border: 1px solid;
 }
 
 .how_content_title {
