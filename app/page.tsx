@@ -13,7 +13,8 @@ import { DailyActivity1 } from "./components/DailyActivity1Modal"
 import { DailyActivity2 } from "./components/DailyActivity2Modal"
 export default function Main() {
   const onButtonClick = () => {
-    alert("Button clicked")
+    setCheckNumber(1)
+    setOpen(true)
   }
   const [open, setOpen] = useState(false)
   const [checkNumber, setCheckNumber] = useState(1)
