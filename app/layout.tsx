@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import Navbar from "./components/Navbar";
 import "./globals.css"
 import Footer from "./components/Footer";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 
 const geistSans = Geist({
@@ -35,9 +36,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
-        <Navbar/>
-        {children}
-        <Footer/>
+        <AppRouterCacheProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

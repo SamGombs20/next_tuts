@@ -8,6 +8,9 @@ export default function Main() {
   const onButtonClick = () => {
     alert("Button clicked")
   }
+  const onClickCheckComponent=(number:string)=>{
+    console.log(number)
+  }
   return (
     <div className={style.home_container}>
       <div className={style.intro_main_container}>
@@ -19,7 +22,7 @@ export default function Main() {
             <div className={style.check_components_container}>
 
               <div className={style.check_components}>
-                <div className={style.check_component}>
+                <div className={style.check_component} onClick={()=>onClickCheckComponent("1")}>
                   <Image
                     src="/personal_details.webp"
                     width={80}
@@ -28,7 +31,7 @@ export default function Main() {
                   />
                   <p className={`${style.check_component_title} gradient-text`}>Personal Details</p>
                 </div>
-                <div className={style.check_component}>
+                <div className={style.check_component} onClick={()=>onClickCheckComponent("2")}>
                   <Image
                     src="/meal.webp"
                     width={80}
@@ -37,7 +40,7 @@ export default function Main() {
                   />
                   <p className={`${style.check_component_title} gradient-text`}>Eating Habits</p>
                 </div>
-                <div className={style.check_component}>
+                <div className={style.check_component} onClick={()=>onClickCheckComponent("3")}>
                   <Image
                     src="/lifestyle_1.webp"
                     width={80}
@@ -46,7 +49,7 @@ export default function Main() {
                   />
                   <p className={`${style.check_component_title} gradient-text`}>Daily Activity & Lifestyle I</p>
                 </div>
-                <div className={style.check_component}>
+                <div className={style.check_component} onClick={()=>onClickCheckComponent("4")}>
                   <Image
                     src="/lifestyle_2.webp"
                     width={80}
@@ -61,6 +64,7 @@ export default function Main() {
                 src="/intro_pic.webp"
                 width={400}
                 height={400}
+                loading="eager"
                 alt=""
                 />
               </div>
