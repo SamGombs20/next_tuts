@@ -42,13 +42,27 @@ export default function Main() {
     technologyUse:"",
     transportMeans:""
   })
+  const [globalError, setGlobalError] = useState('')
   const onClickCheckComponent=(number:string)=>{
     setCheckNumber(parseInt(number))
     setOpen(true)
-    console.log(number)
   }
   const handleClose =()=>{
     setOpen(false)
+  }
+  const handlePredict =()=>{
+    const isPersonalComplete = Object.values(personalDetails).every(value=> value!=='')
+    const isEatingComplete = Object.values(eatingHabits).every(value=>value!=='')
+    const isActivity1Complete = Object.values(dailyActivity1).every(value=>value!=='')
+    const isActivity2Complete = Object.values(dailyActivity2).every(value=> value!=='')
+
+    if(!isPersonalComplete || !isEatingComplete || !isActivity1Complete || !isActivity2Complete){
+      setGlobalError("Please complete all the sections.")
+      return;
+    }
+    setGlobalError('')
+    const data = {...personalDetails, ...eatingHabits, ...dailyActivity1, ...dailyActivity2}
+    console.log(data)
   }
   return (
     <div className={style.home_container}>
