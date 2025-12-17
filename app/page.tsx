@@ -18,6 +18,30 @@ export default function Main() {
   }
   const [open, setOpen] = useState(false)
   const [checkNumber, setCheckNumber] = useState(1)
+  const [personalDetails, setPersonalDetails] = useState({
+    gender:"",
+    familyHistory:"",
+    age:"",
+    height:"",
+    weight:""
+  })
+  const [eatingHabits, setEatingHabits] = useState({
+    caloriesIntake:"",
+    dailyMeals:"",
+    vegetableIntake:"",
+    snackIntake:""
+  })
+  const [dailyActivity1, setDailyActivity1] = useState({
+    waterIntake:"",
+    calorieMonitoring:"",
+    smoke:"",
+    alcohol:""
+  })
+  const [dailyActivity2, setDailyActivity2] = useState({
+    physicalActivity:"",
+    technologyUse:"",
+    transportMeans:""
+  })
   const onClickCheckComponent=(number:string)=>{
     setCheckNumber(parseInt(number))
     setOpen(true)
