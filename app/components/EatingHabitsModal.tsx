@@ -1,6 +1,6 @@
 'use client'
 
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
+import { FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup } from "@mui/material";
 import { radioGroupStyles } from "../styles/MUICustom";
 import style from "../styles/detail_modal.module.css"
 import { ChangeEvent, FC, useState } from "react";
@@ -38,6 +38,10 @@ export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
         if(!data.dailyMeals) newErrors.dailyMeals = "Fill out this field"
         if(!data.vegetableIntake) newErrors.vegetableIntake = "Fill out this field"
         if(!data.snackIntake) newErrors.snackIntake = "Fill out this field"
+        setErrors(newErrors)
+        if(Object.values(newErrors).every(value => value.length===0)){
+            onSave()
+        }
     }
     return (
         <div className={style.details_form_container}>
@@ -46,27 +50,29 @@ export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
             </p>
             <div className={style.details_form}>
                 <div className={style.radio_container}>
-                    <FormControl sx={radioGroupStyles}>
+                    <FormControl sx={radioGroupStyles} error={!!errors.caloriesIntake}>
                         <FormLabel id="caloric"> Do you eat high caloric food frequently? (Red meat, nuts, milk, etc)</FormLabel>
                         <RadioGroup aria-labelledby="caloric" value={data.caloriesIntake} onChange={handleChange} name="caloriesIntake">
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
                         </RadioGroup>
+                        {errors.caloriesIntake && <FormHelperText>{errors.caloriesIntake}</FormHelperText>}
                     </FormControl>
                 </div>
                 <div className={style.radio_container}>
-                    <FormControl sx={radioGroupStyles}>
+                    <FormControl sx={radioGroupStyles} error={!!errors.dailyMeals}>
                         <FormLabel id="meals">How many meals do you have daily? </FormLabel>
-                        <RadioGroup aria-labelledby="meals" value={data.dailyMeals} name="dailyMeals" row>
+                        <RadioGroup aria-labelledby="meals" value={data.dailyMeals} onChange={handleChange} name="dailyMeals" row>
                             <FormControlLabel value="1" control={<Radio />} label="1" />
                             <FormControlLabel value="2" control={<Radio />} label="2" />
                             <FormControlLabel value="3" control={<Radio />} label="3" />
                             <FormControlLabel value="4" control={<Radio />} label="4" />
                         </RadioGroup>
+                        {errors.dailyMeals && <FormHelperText>{errors.dailyMeals}</FormHelperText>}
                     </FormControl>
                 </div>
                 <div className={style.radio_container}>
-                    <FormControl sx={radioGroupStyles}>
+                    <FormControl sx={radioGroupStyles} error={!!errors.vegetableIntake}>
                         <FormLabel id="veg">Do you usually eat vegetables in your meals?</FormLabel>
                         <RadioGroup aria-labelledby="veg" value={data.vegetableIntake} onChange={handleChange} name="vegetableIntake">
                             <FormControlLabel value="1" control={<Radio />} label="Rarely" />
@@ -74,10 +80,11 @@ export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
                             <FormControlLabel value="3" control={<Radio />} label="Always" />
 
                         </RadioGroup>
+                        {errors.vegetableIntake && <FormHelperText>{errors.vegetableIntake}</FormHelperText>}
                     </FormControl>
                 </div>
                 <div className={style.radio_container}>
-                    <FormControl sx={radioGroupStyles}>
+                    <FormControl sx={radioGroupStyles} error={!!errors.snackIntake}>
                         <FormLabel id="snack">Do you eat any food/snack between meals?</FormLabel>
                         <RadioGroup aria-labelledby="snack" value={data.snackIntake} onChange={handleChange} name="snackIntake">
                             <FormControlLabel value="1" control={<Radio />} label="No" />
@@ -86,6 +93,7 @@ export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
                             <FormControlLabel value="4" control={<Radio />} label="Always" />
 
                         </RadioGroup>
+                        {errors.snackIntake && <FormHelperText>{errors.snackIntake}</FormHelperText>}
                     </FormControl>
                 </div>
 
@@ -93,7 +101,7 @@ export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
             </div>
             <div className={style.form_buttons}>
                 <button className={`${style.close_btn} btn`}>Cancel</button>
-                <button className={`${style.check_btn} btn`} onClick={onSave}>Save</button>
+                <button className={`${style.check_btn} btn`} onClick={validateAndSave}>Save</button>
             </div>
         </div>
     );
