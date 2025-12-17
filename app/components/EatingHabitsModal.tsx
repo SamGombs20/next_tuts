@@ -100,7 +100,7 @@ export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
 
             </div>
             <div className={style.form_buttons}>
-                <button className={`${style.close_btn} btn`}>Cancel</button>
+                <button className={`${style.close_btn} btn`} onClick={onSave}>Cancel</button>
                 <button className={`${style.check_btn} btn`} onClick={validateAndSave}>Save</button>
             </div>
         </div>
