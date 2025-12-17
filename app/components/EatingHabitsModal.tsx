@@ -48,7 +48,7 @@ export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
                 <div className={style.radio_container}>
                     <FormControl sx={radioGroupStyles}>
                         <FormLabel id="caloric"> Do you eat high caloric food frequently? (Red meat, nuts, milk, etc)</FormLabel>
-                        <RadioGroup aria-labelledby="caloric" name="caloric-group">
+                        <RadioGroup aria-labelledby="caloric" value={data.caloriesIntake} onChange={handleChange} name="caloriesIntake">
                             <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel value="no" control={<Radio />} label="No" />
                         </RadioGroup>
@@ -57,7 +57,7 @@ export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
                 <div className={style.radio_container}>
                     <FormControl sx={radioGroupStyles}>
                         <FormLabel id="meals">How many meals do you have daily? </FormLabel>
-                        <RadioGroup aria-labelledby="meals" name="meals-group" row>
+                        <RadioGroup aria-labelledby="meals" value={data.dailyMeals} name="dailyMeals" row>
                             <FormControlLabel value="1" control={<Radio />} label="1" />
                             <FormControlLabel value="2" control={<Radio />} label="2" />
                             <FormControlLabel value="3" control={<Radio />} label="3" />
