@@ -184,7 +184,7 @@ export default function Main() {
       <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle}>
           {checkNumber === 1 && <PersonalDetailsModal />}
-          {checkNumber === 2 && <EatingHabits/>}
+          {checkNumber === 2 && <EatingHabits data={eatingHabits} onSave={handleClose} setData={setEatingHabits}/>}
           {checkNumber===3 && <DailyActivity1/>}
           {checkNumber ===4 && <DailyActivity2/>}
           

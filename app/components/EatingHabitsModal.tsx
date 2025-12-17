@@ -3,7 +3,13 @@
 import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from "@mui/material";
 import { radioGroupStyles } from "../styles/MUICustom";
 import style from "../styles/detail_modal.module.css"
-export const EatingHabits = () => {
+import { FC } from "react";
+interface Props{
+    data:EatingHabits
+    setData:(data:EatingHabits)=>void
+    onSave:()=>void
+}
+export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
     return (
         <div className={style.details_form_container}>
             <p className={`${style.form_title} gradient-text`}>
@@ -58,7 +64,7 @@ export const EatingHabits = () => {
             </div>
             <div className={style.form_buttons}>
                 <button className={`${style.close_btn} btn`}>Cancel</button>
-                <button className={`${style.check_btn} btn`}>Save</button>
+                <button className={`${style.check_btn} btn`} onClick={onSave}>Save</button>
             </div>
         </div>
     );
