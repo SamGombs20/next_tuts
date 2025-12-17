@@ -3,7 +3,15 @@
 import { FormControl, FormControlLabel, FormLabel,  Radio, RadioGroup } from "@mui/material";
 import { radioGroupStyles} from "../styles/MUICustom";
 import style from "../styles/detail_modal.module.css"
-export const DailyActivity1 = () => {
+import { FC } from "react";
+
+interface Props{
+    data:DailyActivity1
+    setData:(data:DailyActivity1)=>void
+    onSave:()=>void
+}
+export const DailyActivity1:FC<Props> = ({data, setData, onSave}) => {
+    
     return (
         <div className={style.details_form_container}>
             <p className={`${style.form_title} gradient-text`}>
