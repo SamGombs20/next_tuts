@@ -11,7 +11,8 @@
 .title_container{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 1rem;
 }
 .response_container{
     color: var(--custom-brown);
