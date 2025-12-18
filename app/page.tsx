@@ -11,7 +11,7 @@ import { useState } from "react"
 import { EatingHabits } from "./components/EatingHabitsModal"
 import { DailyActivity1 } from "./components/DailyActivity1Modal"
 import { DailyActivity2 } from "./components/DailyActivity2Modal"
-import { predict } from "./api/api"
+import { predict, recommendation } from "./api/api"
 import { formatObesityLevel } from "./utils/common"
 export default function Main() {
 
@@ -80,8 +80,10 @@ export default function Main() {
       CALC: data.alcohol,
       MTRANS: data.transportMeans
     }
-    const res =await predict(apiInput)
-    console.log(formatObesityLevel(res.prediction))
+    const pred =await predict(apiInput)
+    const recommend = await recommendation(apiInput)
+    console.log(formatObesityLevel(pred.prediction))
+    console.log(recommend.recommendation)
   }
   return (
     <div className={style.home_container}>
@@ -149,7 +151,7 @@ export default function Main() {
       <div className={style.how_container}>
         <div className={style.container}>
           <p className={style.title_text}>How it works</p>
-          <p>Our model predicts a person's likelihood of being  overweight or obese based on various lifestyle habits, physical characteristics and daily routines.Once you provide this information, our AI-powered model analyses patterns and predicts you obesity risk based on real-world data and scientific research. <strong>Note</strong>, <em>your data is used solely for prediction and is not stored or shared</em> </p>
+          <p>Our model predicts a person's likelihood of being  overweight or obese based on various lifestyle habits, physical characteristics and daily routines.Once you provide this information, our AI-powered model analyses patterns and predicts you obesity risk based on real-world data and scientific predearch. <strong>Note</strong>, <em>your data is used solely for prediction and is not stored or shared</em> </p>
           <div className={style.how_components_container}>
             <div className={`${style.how_component} ${style.transparent}`}>
               <div className={style.how_content_title}>

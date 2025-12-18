@@ -62,3 +62,6 @@ type APIInput ={
 type PredictionRespone ={
     prediction:string
 }
+type RecommendationResponse ={
+    recommendation:string
+}
