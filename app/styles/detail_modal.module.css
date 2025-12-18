@@ -26,14 +26,21 @@
     padding-bottom: 1rem;
     border-bottom: 5px solid var(--custom-brown);
 }
+.main_content_container{
+    border: 1px solid;
+    padding: 1rem;
+    border-radius: 1rem;
+}
 .content_container{
     margin-bottom: 1rem;
 }
 .content_title{
     font-size: 1.2rem;
     font-weight: 600;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid;
+    padding-bottom: 0.2rem;
+    border-bottom: 3px solid;
+    width: fit-content;
+    color: var(--custom-dark-green);
     
 }
 .content{

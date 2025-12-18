@@ -17,6 +17,7 @@ import { ResponseModal } from "./components/ModelResponseModal"
 export default function Main() {
 
   const [open, setOpen] = useState(false)
+  const [openResponse, setOpenResponse] = useState(false)
   const [checkNumber, setCheckNumber] = useState(1)
   const [predictionInfo, setPredictionInfo] = useState("")
   const [recommendationInfo, setRecommendationInfo] = useState("")
@@ -53,6 +54,9 @@ export default function Main() {
   const handleClose = () => {
     setOpen(false)
   }
+  const handleCloseResponse = () => {
+    setOpenResponse(false)
+  }
   const handlePredict = async () => {
     const isPersonalComplete = Object.values(personalDetails).every(value => value !== '')
     const isEatingComplete = Object.values(eatingHabits).every(value => value !== '')
@@ -86,8 +90,9 @@ export default function Main() {
     try {
       const pred = await predict(apiInput)
       const recommend = await recommendation(apiInput)
-      setPredictionInfo(pred.prediction)
+      setPredictionInfo(formatObesityLevel(pred.prediction))
       setRecommendationInfo(recommend.recommendation)
+      setOpenResponse(true)
     }
     catch (e) {
       throw new Error("Couldn't process data")
@@ -213,14 +218,18 @@ export default function Main() {
       </div>
       <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle}>
-          {checkNumber ===1 && <ResponseModal/>}
-          {/* {checkNumber === 1 && <PersonalDetailsModal data={personalDetails} setData={setPersonalDetails} onSave={handleClose} />} */}
+          {checkNumber === 1 && <PersonalDetailsModal data={personalDetails} setData={setPersonalDetails} onSave={handleClose} />}
           {checkNumber === 2 && <EatingHabits data={eatingHabits} onSave={handleClose} setData={setEatingHabits} />}
           {checkNumber === 3 && <DailyActivity1 data={dailyActivity1} setData={setDailyActivity1} onSave={handleClose} />}
           {checkNumber === 4 && <DailyActivity2 data={dailyActivity2} setData={setDailyActivity2} onSave={handleClose} />}
-
         </Box>
 
+      </Modal>
+      <Modal open={openResponse} onClose={handleCloseResponse}>
+        <Box sx={modalStyle}>
+          {predictionInfo && <ResponseModal prediction={predictionInfo} recommendation={recommendationInfo} close={handleCloseResponse} />}
+
+        </Box>
       </Modal>
     </div>
   )
