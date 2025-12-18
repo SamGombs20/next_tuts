@@ -52,10 +52,13 @@ type APIInput ={
     NCP:number
     CAEC:string
     SMOKE:string
-    CH20:number
+    CH2O:number
     SCC:string
     FAF:number
     TUE:number
-    CALC:number
-    MTANS:string
+    CALC:string
+    MTRANS:string
+}
+type PredictionRespone ={
+    prediction:string
 }

@@ -98,8 +98,8 @@ export const PersonalDetailsModal: FC<Props> = ({ data, setData, onSave }) => {
                     <FormControl sx={radioGroupStyles} error={!!errors.familyHistory}>
                         <FormLabel id="family"> Do have a family history of anyone being overweight?</FormLabel>
                         <RadioGroup aria-labelledby="family" value={data.familyHistory} onChange={handleChange} name="familyHistory">
-                            <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="No" control={<Radio />} label="No" />
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
                         </RadioGroup>
                         {errors.familyHistory && <FormHelperText>{errors.familyHistory}</FormHelperText>}
                     </FormControl>

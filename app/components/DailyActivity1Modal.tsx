@@ -69,8 +69,8 @@ export const DailyActivity1:FC<Props> = ({data, setData, onSave}) => {
                     <FormControl sx={radioGroupStyles} error={!!errors.calorieMonitoring}>
                         <FormLabel id="calorie">Do you monitor the calories you eat daily?</FormLabel>
                         <RadioGroup aria-labelledby="calorie" value={data.calorieMonitoring} onChange={handleChange} name="calorieMonitoring">
-                            <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="No" control={<Radio />} label="No" />
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
                         </RadioGroup>
                         {errors.calorieMonitoring && <FormHelperText>{errors.calorieMonitoring}</FormHelperText>}
                     </FormControl>
@@ -79,8 +79,8 @@ export const DailyActivity1:FC<Props> = ({data, setData, onSave}) => {
                     <FormControl sx={radioGroupStyles} error={!!errors.smoke}>
                         <FormLabel id="smoke">Do you smoke?</FormLabel>
                         <RadioGroup aria-labelledby="smoke" value={data.smoke} onChange={handleChange} name="smoke">
-                            <FormControlLabel value="Yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel value="No" control={<Radio />} label="No" />
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
                         </RadioGroup>
                         {errors.smoke && <FormHelperText>{errors.smoke}</FormHelperText>}
                     </FormControl>

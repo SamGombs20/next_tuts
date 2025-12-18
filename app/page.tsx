@@ -11,6 +11,7 @@ import { useState } from "react"
 import { EatingHabits } from "./components/EatingHabitsModal"
 import { DailyActivity1 } from "./components/DailyActivity1Modal"
 import { DailyActivity2 } from "./components/DailyActivity2Modal"
+import { predict } from "./api/api"
 export default function Main() {
 
   const [open, setOpen] = useState(false)
@@ -48,7 +49,7 @@ export default function Main() {
   const handleClose =()=>{
     setOpen(false)
   }
-  const handlePredict =()=>{
+  const handlePredict = async()=>{
     const isPersonalComplete = Object.values(personalDetails).every(value=> value!=='')
     const isEatingComplete = Object.values(eatingHabits).every(value=>value!=='')
     const isActivity1Complete = Object.values(dailyActivity1).every(value=>value!=='')
@@ -60,7 +61,26 @@ export default function Main() {
     }
     setGlobalError('')
     const data:Obesity = {...personalDetails, ...eatingHabits, ...dailyActivity1, ...dailyActivity2}
-    console.log(data)
+    const apiInput:APIInput ={
+      Gender: data.gender,
+      Age: parseInt(data.age),
+      Height: parseInt(data.height),
+      Weight: parseInt(data.weight),
+      family_history_with_overweight: data.familyHistory,
+      FAVC: data.caloriesIntake,
+      FCVC: parseInt(data.vegetableIntake),
+      NCP: parseInt(data.dailyMeals),
+      CAEC: data.snackIntake,
+      SMOKE: data.smoke,
+      CH2O: parseInt(data.waterIntake),
+      SCC: data.calorieMonitoring,
+      FAF: parseInt(data.physicalActivity),
+      TUE: parseInt(data.technologyUse),
+      CALC: data.alcohol,
+      MTRANS: data.transportMeans
+    }
+    const res =await predict(apiInput)
+    console.log(res.prediction.toUpperCase())
   }
   return (
     <div className={style.home_container}>
