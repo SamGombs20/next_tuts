@@ -4,8 +4,8 @@ import style from "./styles/home.module.css"
 import { BsPersonCircle } from "react-icons/bs"
 import { PiPersonSimpleBikeFill } from "react-icons/pi"
 import Image from "next/image"
-import { Box, Modal, Step, StepButton, StepLabel, Stepper } from "@mui/material"
-import { modalStyle, stepperStyle } from "./styles/MUICustom"
+import { Box, Modal } from "@mui/material"
+import { modalStyle  } from "./styles/MUICustom"
 import { PersonalDetailsModal } from "./components/PersonalDetailsModal"
 import { useState } from "react"
 import { EatingHabits } from "./components/EatingHabitsModal"
@@ -133,15 +133,8 @@ export default function Main() {
           <div className={style.check_container}>
             <p className={style.check_title}>Quickly check your obesity level</p>
             <p>We collect anonymous data of your personal, physical, diet and lifestyle information.</p>
-            <Box sx={{width:"90%",...stepperStyle}}>
-              <Stepper nonLinear activeStep={checkNumber}>
-                {steps.map((step,index)=>(
-                  <Step completed={checkNumber>index} key={index}>
-                    <StepLabel icon={<step.icon/>}>{step.label}</StepLabel>
-                  </Step>
-                ))}
-              </Stepper>
-            </Box>
+           <div className={style.stepper_container}>
+             
             <div className={style.check_components_container}>
 
               <div className={style.check_components}>
@@ -192,6 +185,7 @@ export default function Main() {
                 />
               </div>
             </div>
+           </div>
             {globalError && <p className="error-text">{globalError}</p>}
             <button onClick={handlePredict} className={style.check_btn}>Get Prediction</button>
           </div>

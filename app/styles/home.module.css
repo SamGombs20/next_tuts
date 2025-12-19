@@ -1,7 +1,8 @@
-.home_container{
+.home_container {
     z-index: 5;
     background-color: white;
 }
+
 .intro_main_container {
     background: linear-gradient(135deg, var(--custom-brown), var(--custom-dark-green));
     /* padding-top: 10rem; */
@@ -29,12 +30,13 @@
 .intro_text span {
     font-weight: 600;
 }
-.check_components_container{
+
+.check_components_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 0.5rem;
-    gap: 3rem;
+    gap: 1rem;
 }
 
 .check_container {
@@ -51,8 +53,15 @@
     margin-bottom: 0.5rem;
 }
 
-.check_btn{
-    margin-top: 3rem;
+.stepper_container {
+    /* border: 1px solid; */
+    border-radius: 1rem;
+    padding: 0.2rem;
+    margin-top: 2rem;
+}
+
+.check_btn {
+    margin-top: 1rem;
     padding: 8px 20px;
     border-radius: 1.5rem;
     color: white;
@@ -63,14 +72,16 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.check_components{
+
+.check_components {
     display: flex;
     max-width: 400px;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: space-evenly;
 }
-.check_component{
+
+.check_component {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -80,15 +91,19 @@
     border-radius: 1rem;
     transition: all 0.3s ease-in-out;
 }
-.check_component:hover{
+
+.check_component:hover {
     cursor: pointer;
 
 }
-.check_component_title{
+
+.check_component_title {
     font-size: 1rem;
     font-weight: 600;
 }
-.check_btn:hover, .check_component:hover{
+
+.check_btn:hover,
+.check_component:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px #ff8c4558;
 }
@@ -115,7 +130,8 @@
     width: 250px;
     margin-bottom: 1rem;
 }
-.how_components_container{
+
+.how_components_container {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -132,7 +148,8 @@
     margin: 1rem;
     box-shadow: var(--box-shadow);
 }
-.transparent{
+
+.transparent {
     background-color: var(--custom-dark-green);
     color: white;
 }
@@ -164,7 +181,7 @@
 }
 
 @media screen and (max-width:800px) {
-    .intro_image{
+    .intro_image {
         display: none;
     }
 }
