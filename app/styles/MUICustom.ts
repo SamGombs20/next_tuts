@@ -174,12 +174,16 @@ export const radioGroupStyles = {
 export const stepperStyle = {
     "& .MuiStep-root": {
         color: "#8B4513",
-        fontSize: "1.3rem"
+        fontSize: "1.3rem",
+        "& .Mui-active": {
+            color: "#006400",
+            fontWeight: 600
+        },
+        "& .Mui-disabled":{
+            color:"#8B4513"
+        }
     },
-    "& .Mui-active":{
-        color:"#006400",
-        fontWeight:600
-    }
+
     // "& .Mui-completed":{
     //     color:"#006400"
     // }

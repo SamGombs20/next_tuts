@@ -8,8 +8,9 @@ interface Props{
     data:EatingHabits
     setData:(data:EatingHabits)=>void
     onSave:()=>void
+    onClose:()=>void
 }
-export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
+export const EatingHabits:FC<Props> = ({data, setData, onSave, onClose}) => {
     const [errors, setErrors] = useState<EatingHabits>({
         caloriesIntake:'',
         dailyMeals:'',
@@ -100,7 +101,7 @@ export const EatingHabits:FC<Props> = ({data, setData, onSave}) => {
 
             </div>
             <div className={style.form_buttons}>
-                <button className={`${style.close_btn} btn`} onClick={onSave}>Cancel</button>
+                <button className={`${style.close_btn} btn`} onClick={onClose}>Cancel</button>
                 <button className={`${style.check_btn} btn`} onClick={validateAndSave}>Save</button>
             </div>
         </div>

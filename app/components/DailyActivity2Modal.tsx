@@ -1,7 +1,7 @@
 'use client'
 
 import { FormControl, FormControlLabel, FormHelperText, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField } from "@mui/material";
-import { radioGroupStyles, textfieldStyles } from "../styles/MUICustom";
+import { radioGroupStyles } from "../styles/MUICustom";
 import style from "../styles/detail_modal.module.css"
 import { ChangeEvent, FC, useState } from "react";
 
@@ -9,8 +9,9 @@ interface Props{
     data:DailyActivity2
     setData:(data:DailyActivity2)=>void
     onSave:()=>void
+    onClose:()=>void
 }
-export const DailyActivity2:FC<Props> = ({data, setData, onSave}) => {
+export const DailyActivity2:FC<Props> = ({data, setData, onSave, onClose}) => {
     const [errors, setErrors] = useState<DailyActivity2>({
         physicalActivity:'',
         technologyUse:'',
@@ -89,7 +90,7 @@ export const DailyActivity2:FC<Props> = ({data, setData, onSave}) => {
                 </div>
             </div>
             <div className={style.form_buttons}>
-                <button className={`${style.close_btn} btn`} onClick={onSave}>Cancel</button>
+                <button className={`${style.close_btn} btn`} onClick={onClose}>Cancel</button>
                 <button className={`${style.check_btn} btn`} onClick={validateAndSave}>Save</button>
             </div>
         </div>

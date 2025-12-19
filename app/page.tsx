@@ -134,7 +134,7 @@ export default function Main() {
           <div className={style.check_container}>
             <p className={style.check_title}>Quickly check your obesity level</p>
             <p>We collect anonymous data of your personal, physical, diet and lifestyle information.</p>
-            <Box sx={{width:"100%",...stepperStyle}}>
+            <Box sx={{width:"90%",...stepperStyle}}>
               <Stepper nonLinear activeStep={checkNumber}>
                 {steps.map((step,index)=>(
                   <Step key={index}>
@@ -256,9 +256,9 @@ export default function Main() {
       <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle}>
           {checkNumber === 0 && <PersonalDetailsModal data={personalDetails} setData={setPersonalDetails} onSave={handleSave} onClose={handleClose}/>}
-          {checkNumber === 1 && <EatingHabits data={eatingHabits} onSave={handleSave} setData={setEatingHabits} />}
-          {checkNumber === 2 && <DailyActivity1 data={dailyActivity1} setData={setDailyActivity1} onSave={handleSave} />}
-          {checkNumber === 3 && <DailyActivity2 data={dailyActivity2} setData={setDailyActivity2} onSave={handleSave} />}
+          {checkNumber === 1 && <EatingHabits data={eatingHabits} onSave={handleSave} setData={setEatingHabits} onClose={handleClose} />}
+          {checkNumber === 2 && <DailyActivity1 data={dailyActivity1} setData={setDailyActivity1} onSave={handleSave} onClose={handleClose} />}
+          {checkNumber === 3 && <DailyActivity2 data={dailyActivity2} setData={setDailyActivity2} onSave={handleSave} onClose={handleClose} />}
         </Box>
 
       </Modal>
