@@ -8,8 +8,9 @@ interface Props {
     data: PersonalDetails
     setData: (data: PersonalDetails) => void
     onSave: () => void
+    onClose:()=>void
 }
-export const PersonalDetailsModal: FC<Props> = ({ data, setData, onSave }) => {
+export const PersonalDetailsModal: FC<Props> = ({ data, setData, onSave, onClose }) => {
     const [errors, setErrors] = useState<PersonalDetails>({
         gender: '',
         familyHistory: '',
@@ -109,7 +110,7 @@ export const PersonalDetailsModal: FC<Props> = ({ data, setData, onSave }) => {
                 <TextField label="Weight (kg)" name="weight" value={data.weight} onChange={handleChange} error={!!errors.weight} helperText={errors.weight} sx={textfieldStyles} />
             </div>
             <div className={style.form_buttons}>
-                <button className={`${style.close_btn} btn`} onClick={onSave}>Cancel</button>
+                <button className={`${style.close_btn} btn`} onClick={onClose}>Cancel</button>
                 <button className={`${style.check_btn} btn`} onClick={validateAndSave}>Save</button>
             </div>
         </div>

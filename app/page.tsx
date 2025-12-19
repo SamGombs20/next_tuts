@@ -4,8 +4,8 @@ import style from "./styles/home.module.css"
 import { BsPersonCircle } from "react-icons/bs"
 import { PiPersonSimpleBikeFill } from "react-icons/pi"
 import Image from "next/image"
-import { Box, Modal } from "@mui/material"
-import { modalStyle } from "./styles/MUICustom"
+import { Box, Modal, Step, StepButton, StepLabel, Stepper } from "@mui/material"
+import { modalStyle, stepperStyle } from "./styles/MUICustom"
 import { PersonalDetailsModal } from "./components/PersonalDetailsModal"
 import { useState } from "react"
 import { EatingHabits } from "./components/EatingHabitsModal"
@@ -15,11 +15,12 @@ import { predict, recommendation } from "./api/api"
 import { formatObesityLevel } from "./utils/common"
 import { ResponseModal } from "./components/ModelResponseModal"
 import { TbTreadmill } from "react-icons/tb"
+import { MdSportsGymnastics } from "react-icons/md"
 export default function Main() {
 
   const [open, setOpen] = useState(false)
   const [openResponse, setOpenResponse] = useState(false)
-  const [checkNumber, setCheckNumber] = useState(1)
+  const [checkNumber, setCheckNumber] = useState(0)
   const [predictionInfo, setPredictionInfo] = useState("")
   const [recommendationInfo, setRecommendationInfo] = useState("")
   const [personalDetails, setPersonalDetails] = useState<PersonalDetails>({
@@ -61,7 +62,8 @@ export default function Main() {
       icon:TbTreadmill
     },
     {
-      label:'Daily Activity & Lifestyle II'
+      label:'Daily Activity & Lifestyle II',
+      icon: MdSportsGymnastics
     }
   ]
   const onClickCheckComponent = (number: string) => {
@@ -69,13 +71,17 @@ export default function Main() {
     setCheckNumber(parseInt(number))
     setOpen(true)
   }
-  const handleClose = () => {
+  const handleSave = () => {
     setOpen(false)
     if (checkNumber < 4) {
       let value = checkNumber
       setCheckNumber(value += 1)
     }
   }
+  const handleClose =()=>{
+    setOpen(false)
+  }
+
   const handleCloseResponse = () => {
     setOpenResponse(false)
   }
@@ -128,10 +134,19 @@ export default function Main() {
           <div className={style.check_container}>
             <p className={style.check_title}>Quickly check your obesity level</p>
             <p>We collect anonymous data of your personal, physical, diet and lifestyle information.</p>
+            <Box sx={{width:"100%",...stepperStyle}}>
+              <Stepper nonLinear activeStep={checkNumber}>
+                {steps.map((step,index)=>(
+                  <Step key={index}>
+                    <StepLabel icon={<step.icon/>}>{step.label}</StepLabel>
+                  </Step>
+                ))}
+              </Stepper>
+            </Box>
             <div className={style.check_components_container}>
 
               <div className={style.check_components}>
-                <div className={style.check_component} onClick={() => onClickCheckComponent("1")}>
+                <div className={style.check_component} onClick={() => onClickCheckComponent("0")}>
                   <Image
                     src="/personal_details.webp"
                     width={80}
@@ -140,7 +155,7 @@ export default function Main() {
                   />
                   <p className={`${style.check_component_title} gradient-text`}>Personal Details</p>
                 </div>
-                <div className={style.check_component} onClick={() => onClickCheckComponent("2")}>
+                <div className={style.check_component} onClick={() => onClickCheckComponent("1")}>
                   <Image
                     src="/meal.webp"
                     width={80}
@@ -149,7 +164,7 @@ export default function Main() {
                   />
                   <p className={`${style.check_component_title} gradient-text`}>Eating Habits</p>
                 </div>
-                <div className={style.check_component} onClick={() => onClickCheckComponent("3")}>
+                <div className={style.check_component} onClick={() => onClickCheckComponent("2")}>
                   <Image
                     src="/lifestyle_1.webp"
                     width={80}
@@ -158,7 +173,7 @@ export default function Main() {
                   />
                   <p className={`${style.check_component_title} gradient-text`}>Daily Activity & Lifestyle I</p>
                 </div>
-                <div className={style.check_component} onClick={() => onClickCheckComponent("4")}>
+                <div className={style.check_component} onClick={() => onClickCheckComponent("3")}>
                   <Image
                     src="/lifestyle_2.webp"
                     width={80}
@@ -171,7 +186,7 @@ export default function Main() {
               <div className={style.intro_image}>
                 <Image
                   src="/intro_pic.webp"
-                  width={400}
+                  width={300}
                   height={400}
                   loading="eager"
                   alt=""
@@ -240,10 +255,10 @@ export default function Main() {
       </div>
       <Modal open={open} onClose={handleClose}>
         <Box sx={modalStyle}>
-          {checkNumber === 1 && <PersonalDetailsModal data={personalDetails} setData={setPersonalDetails} onSave={handleClose} />}
-          {checkNumber === 2 && <EatingHabits data={eatingHabits} onSave={handleClose} setData={setEatingHabits} />}
-          {checkNumber === 3 && <DailyActivity1 data={dailyActivity1} setData={setDailyActivity1} onSave={handleClose} />}
-          {checkNumber === 4 && <DailyActivity2 data={dailyActivity2} setData={setDailyActivity2} onSave={handleClose} />}
+          {checkNumber === 0 && <PersonalDetailsModal data={personalDetails} setData={setPersonalDetails} onSave={handleSave} onClose={handleClose}/>}
+          {checkNumber === 1 && <EatingHabits data={eatingHabits} onSave={handleSave} setData={setEatingHabits} />}
+          {checkNumber === 2 && <DailyActivity1 data={dailyActivity1} setData={setDailyActivity1} onSave={handleSave} />}
+          {checkNumber === 3 && <DailyActivity2 data={dailyActivity2} setData={setDailyActivity2} onSave={handleSave} />}
         </Box>
 
       </Modal>
