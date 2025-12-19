@@ -14,6 +14,7 @@ import { DailyActivity2 } from "./components/DailyActivity2Modal"
 import { predict, recommendation } from "./api/api"
 import { formatObesityLevel } from "./utils/common"
 import { ResponseModal } from "./components/ModelResponseModal"
+import { TbTreadmill } from "react-icons/tb"
 export default function Main() {
 
   const [open, setOpen] = useState(false)
@@ -46,6 +47,23 @@ export default function Main() {
     transportMeans: ""
   })
   const [globalError, setGlobalError] = useState('')
+  const steps = [
+    {
+      label: 'Personal Details',
+      icon: BsPersonCircle
+    },
+    {
+      label: 'Eating Habits',
+      icon: GiMeal
+    },
+    {
+      label:'Daily Activity & Lifestyle I',
+      icon:TbTreadmill
+    },
+    {
+      label:'Daily Activity & Lifestyle II'
+    }
+  ]
   const onClickCheckComponent = (number: string) => {
     setGlobalError('')
     setCheckNumber(parseInt(number))
@@ -53,6 +71,10 @@ export default function Main() {
   }
   const handleClose = () => {
     setOpen(false)
+    if (checkNumber < 4) {
+      let value = checkNumber
+      setCheckNumber(value += 1)
+    }
   }
   const handleCloseResponse = () => {
     setOpenResponse(false)
