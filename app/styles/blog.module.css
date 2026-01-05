@@ -6,6 +6,8 @@
 }
 .intro_container{
     margin-top: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid var(--custom-brown);
 }
 .title_text{
     font-size: 2rem;
