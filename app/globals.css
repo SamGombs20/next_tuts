@@ -67,6 +67,10 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+.main-container{
+  max-width: 1120px;
+  margin: 0 auto;
+}
 .btn:hover{
   transform: translateY(-2px);
     box-shadow: 0 10px 30px #ff8c4558;

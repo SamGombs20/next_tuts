@@ -209,4 +209,9 @@ export const stepperStyle = {
 
 
 }
+export const dividerStyles = {
+    borderColor: "#8B4513",
+    opacity: 0.8,
+    marginY: "1.5rem"
+}
 
