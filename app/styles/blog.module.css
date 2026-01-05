@@ -1,0 +1,18 @@
+.blog_container{
+    max-width: 1120px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 1rem;
+}
+.intro_container{
+    margin-top: 5rem;
+}
+.title_text{
+    font-size: 2rem;
+    font-weight: 600;
+    width: fit-content;
+    margin-bottom: 1rem;
+}
+.intro_details em{
+    color: var(--custom-brown);
+}
