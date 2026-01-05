@@ -1,6 +1,7 @@
 import { Divider } from "@mui/material";
 import style from "../styles/blog.module.css"
 import { dividerStyles } from "../styles/MUICustom";
+import { BlogComponent } from "../components/BlogComponent";
 const Blog = () => {
     return (
         <div className={style.blog_container}>
@@ -15,6 +16,7 @@ const Blog = () => {
                     <p className={`${style.blogs_text} gradient-text`}>Articles</p>
                     <Divider sx={{ ...dividerStyles, width: "80%" }} />
                 </div>
+                {Array.from({ length: 4 }, (_, i) => <BlogComponent key={i} />)}
             </div>
         </div>
     )

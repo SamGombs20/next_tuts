@@ -4,7 +4,7 @@
 }
 
 .intro_main_container {
-    background: linear-gradient(135deg, var(--custom-brown), var(--custom-dark-green));
+    background: linear-gradient(135deg, var(--custom-dark-green), var(--custom-brown));
     /* padding-top: 10rem; */
     padding-bottom: 5rem;
     height: 100vh;
