@@ -2,6 +2,7 @@
 import { FC } from "react";
 import style from "../styles/blog.module.css"
 import { truncateText } from "../utils/common";
+import Link from "next/link";
 
 export const BlogPost:FC<BlogPost>=(blogPost)=>{
     return (
@@ -12,7 +13,7 @@ export const BlogPost:FC<BlogPost>=(blogPost)=>{
             <div className={style.blog_content}>
                 <h3 className={style.blog_title}>{blogPost.title}</h3>
                 <p className={style.blog_details}>{truncateText(blogPost.body?.[0]?.children?.[0]?.text,200)}</p>
-                <button className={`${style.read_more_btn}`}>Read more...</button>
+                <Link href={`/blog/${blogPost.slug}`}><button className={`${style.read_more_btn}`}>Read more...</button></Link>
             </div>
         </div>
     )

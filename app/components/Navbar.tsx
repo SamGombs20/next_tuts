@@ -6,7 +6,10 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
     const pathname = usePathname()
 
-    const isActive = (path: string) => pathname === path ? style.active_link : '';
+    const isActive = (path: string) =>{ 
+        const active = pathname === path || pathname.startsWith(`${path}/`)
+         return active ? style.active_link : '';
+    }
     return (
         <div className={style.navbar_container}>
             <div className={style.container}>

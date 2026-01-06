@@ -81,3 +81,19 @@
     box-shadow: var(--brown-shadow);
     /* border: 0.3px solid; */
 }
+.article_page_container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+}
+.date_author{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+.date_author span{
+    color: var(--custom-brown);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
