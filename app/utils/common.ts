@@ -18,3 +18,12 @@ export const formatObesityLevel =(level:string):string=>{
             return "Unknown"        
     }
 }
+export const truncateText = (text:string, limit:number):string=>{
+    if(!text) return ""
+
+    if(text.length <=limit) return text
+
+    const trimmed = text.slice(0,limit)
+
+    return trimmed.slice(0, trimmed.lastIndexOf(" ")) + "..."
+}

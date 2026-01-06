@@ -3,6 +3,7 @@ import style from "../styles/blog.module.css"
 import { dividerStyles } from "../styles/MUICustom";
 import { BlogComponent } from "../components/BlogComponent";
 import { getBlogPosts } from "../actions/blog";
+import { BlogPost } from "../components/BlogPost";
 const Blog = async () => {
     const blogs = await getBlogPosts()
     console.log(blogs)
@@ -19,7 +20,9 @@ const Blog = async () => {
                     <p className={`${style.blogs_text} gradient-text`}>Articles</p>
                     <Divider sx={{ ...dividerStyles, width: "80%" }} />
                 </div>
-                {Array.from({ length: 4 }, (_, i) => <BlogComponent key={i} />)}
+                {blogs.map((blog, i)=>(
+                    <BlogPost key={i} {...blog} />
+                ))}
             </div>
         </div>
     )
