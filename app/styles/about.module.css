@@ -19,8 +19,13 @@
 .content_text span{
     color: var(--custom-brown);
 }
-.components_container{
+.components_main_container{
     margin-top: 3rem;
+}
+.components_container{
+    display: flex;
+    justify-content: space-between;
+    
 }
 .component{
     max-width: 350px;
