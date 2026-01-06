@@ -27,3 +27,12 @@ export const truncateText = (text:string, limit:number):string=>{
 
     return trimmed.slice(0, trimmed.lastIndexOf(" ")) + "..."
 }
+export const formatDate = (isoDate:string):string=>{
+    const date = new Date(isoDate)
+    return date.toLocaleDateString("en-US",{
+        year:'numeric',
+        month:'long',
+        day:'numeric'
+    })
+
+}
