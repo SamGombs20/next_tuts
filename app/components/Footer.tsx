@@ -20,6 +20,9 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+            <div className={style.copyright}>
+                <p>&copy; 2025 ObesiScan. All rights reserved.</p>
+            </div>
         </div>
     )
 }
