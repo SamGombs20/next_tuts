@@ -156,6 +156,7 @@ export default function Main() {
                             width={80}
                             height={80}
                             loading="eager"
+                            style={{backgroundColor:'white'}}
                             alt=""
                             className={style.check_component_image}
                         />
